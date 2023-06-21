@@ -1,0 +1,14 @@
+defualt:
+	just -l
+
+dev: fmt _kill-serv
+	cargo run
+
+fmt:
+	cargo fmt
+
+watch-dev: fmt _kill-serv
+	cargo watch -x check -x run
+
+_kill-serv:
+	killall catscii || true;
